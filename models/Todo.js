@@ -1,4 +1,5 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose"); // instance of mongoose as I am creating the model, which will be go in the
+// mongo database 
 
 const todoSchema = new mongoose.Schema(
     {

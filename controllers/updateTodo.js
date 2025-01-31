@@ -1,15 +1,20 @@
-//step 1: take the model
+/* Now the controller have the business logic what will happen if the user hit the specific route */
+/* The action which will be performed when hit the specific route, as this controller will be mapped with
+a route */
+
+//step 1: import the model
 const Todo = require("../models/Todo");
 
-//step 2: define the route handler
+//step 2: define the route handler (controller)
 
 exports.updateTodo = async (req, res) => {
     try {
-        const id = req.params.id;
-        const {title,description} = req.body;
+        const id = req.params.id; // retriving the id from the params
+        const {title,description} = req.body;   //retriving the title and description from the body
 
+        // Model.findByIdAndUpdate(id, updateObject, options)
         const todo = await Todo.findByIdAndUpdate(
-            {_id : id},
+            {_id : id}, //although i can use directly id here, but in the findOneAndUpdate we need {_id : id}
             {title, description, updatedAt: Date.now()},
         )
         res.status(200).json({

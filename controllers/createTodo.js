@@ -1,3 +1,7 @@
+/* Now the controller have the business logic what will happen if the user hit the specific route */
+/* The action which will be performed when hit the specific route, as this controller will be mapped with
+a route */
+
 //import the model
 const Todo = require("../models/Todo");
 
@@ -13,16 +17,16 @@ exports.createTodo = async(req, res) => {
         res.status(200).json(
             {
                 success:true,
-                data:response,
+                data:response,  //Returns the created Todo item
                 message:"Entry created Successfully"
             }
         )
     } catch (err) {
-        console.error(err);
+        console.error(err); // console the error
         console.log(err);
-        res.status(500).json({
-            success:false,
-            message:"An error occurred",
+        res.status(500).json({  //send the 500 response
+            success:false,      //mark the success flag false
+            message:"An error occurred",    //show the messege
             error: err.message
         })
     }

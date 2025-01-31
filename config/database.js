@@ -10,8 +10,8 @@ const dbConnect = () => {
         useNewUrlParser:true,
         useUnifiedTopology:true,
     })
-    .then(()=>console.log("DB connection SUCCESSFUL"))
-    .catch((err)=>{
+    .then(()=>console.log("DB connection SUCCESSFUL")) //if everything go well then DB connected successfully
+    .catch((err)=>{                                    //if there is an error it will catch here
         console.log("DB connection FAILED");
         console.log(err.message);
         process.exit(1);
@@ -27,4 +27,4 @@ const dbConnect = () => {
 }
 
 module.exports = dbConnect;
-//using this the function exports
+//using module.exports , exports the dbConnect function
