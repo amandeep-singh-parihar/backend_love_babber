@@ -7,27 +7,28 @@ const Todo = require("../models/Todo");
 
 //define the controller (route handler)
 
-exports.deleteTodo = async (req,res) => {
+exports.deleteTodo = async (req, res) => {
     try {
-        const id = req.params.id;     //now we retriving the id from the params (from the url)
-        const todo = await Todo.findByIdAndDelete(id);      //using await as interaction with the DB
-        if(!todo){                                          //if the todo don't exist
+        const id = req.params.id; // now we retriving the id from the params (from the url)
+        const todo = await Todo.findByIdAndDelete(id); // using await as interaction with the DB
+        if (!todo) {
+            // if the todo don't exist
             return res.status(404).json({
-                success:false,
-                message:"No Data Foudn with given ID"
-            })
+                success: false,
+                message: "No Data Found with given ID",
+            });
         }
-        //data for given id found
+        // data for given id found
         res.status(200).json({
-            success:true,
-            message:"Todo Deleted",
-        })
+            success: true,
+            message: "Todo Deleted",
+        });
     } catch (error) {
         console.error(error);
         res.status(500).json({
-            success:false,
-            error:error.message,
-            message:"Server Error",
+            success: false,
+            error: error.message,
+            message: "Server Error",
         });
     }
-}
+};

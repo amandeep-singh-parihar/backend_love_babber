@@ -1,5 +1,5 @@
 const express = require("express"); // import the express
-const router = express.Router();    // import the express Router
+const router = express.Router(); // import the express Router
 
 // import all the controller
 const { createTodo } = require("../controllers/createTodo");

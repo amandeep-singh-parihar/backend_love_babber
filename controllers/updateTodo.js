@@ -2,32 +2,31 @@
 /* The action which will be performed when hit the specific route, as this controller will be mapped with
 a route */
 
-//step 1: import the model
+// import the model
 const Todo = require("../models/Todo");
 
-//step 2: define the route handler (controller)
-
+// define the route handler (controller)
 exports.updateTodo = async (req, res) => {
     try {
         const id = req.params.id; // retriving the id from the params
-        const {title,description} = req.body;   //retriving the title and description from the body
+        const { title, description } = req.body; // retriving the title and description from the body
 
         // Model.findByIdAndUpdate(id, updateObject, options)
         const todo = await Todo.findByIdAndUpdate(
-            {_id : id}, //although i can use directly id here, but in the findOneAndUpdate we need {_id : id}
-            {title, description, updatedAt: Date.now()},
-        )
+            { _id: id }, // although i can use directly id here, but in the findOneAndUpdate we need {_id : id}
+            { title, description, updatedAt: Date.now() }
+        );
         res.status(200).json({
-            success:true,
-            data:todo,
-            message:"Updated Successfully",
-        })
+            success: true,
+            data: todo,
+            message: "Updated Successfully",
+        });
     } catch (error) {
         console.error(error);
         res.status(500).json({
-            success:false,
-            error:error.message,
-            message:"Server Error",
+            success: false,
+            error: error.message,
+            message: "Server Error",
         });
     }
-}
+};

@@ -1,5 +1,5 @@
 const express = require("express"); // import the express
-const app = express();              // create the express app
+const app = express(); // create the express app
 
 // load config from env file -> it will load the config from the env file and load it into the process object
 require("dotenv").config();
@@ -15,7 +15,7 @@ app.use("/api/v1", todoRoutes);
 
 // start server
 app.listen(PORT, () => {
-  console.log(`Server started at port at : ${PORT}`);
+    console.log(`Server started at port at : ${PORT}`);
 });
 
 // connection to the db
@@ -24,5 +24,5 @@ dbConnect();
 
 // default route
 app.get("/", (req, res) => {
-  res.send(`<h1>Is This working</h1>`);
+    res.send(`<h1>Is This working</h1>`);
 });
