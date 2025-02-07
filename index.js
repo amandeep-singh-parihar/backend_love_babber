@@ -1,7 +1,7 @@
 const express = require("express"); // import the express
 const app = express(); // create the express app
 
-// load config from env file -> it will load the config from the env file and load it into the process object
+// load config from .env file -> it will load the config from the env file and load it into the process object
 require("dotenv").config();
 const PORT = process.env.PORT || 8000; // if the port not fetched correctly then use port number as 8000
 

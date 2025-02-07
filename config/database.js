@@ -1,12 +1,12 @@
-const mongoose = require("mongoose"); //instance of mongoose
+const mongoose = require("mongoose"); // instance of mongoose
 
-require("dotenv").config(); //isse jo bhi maine .env mai likha hoga wo load hojayega process object k ander load ho jayega
+require("dotenv").config(); // isse jo bhi maine .env mai likha hoga wo load hojayega process object k ander load ho jayega
 
-//below is the function which connect the db with the application
+// below is the function which connect the db with the application
 const dbConnect = () => {
     mongoose
         .connect(process.env.DATABASE_URL, {
-            // now how the .env comes in the process folder, for that we use .env library
+            // now the data from .env comes in the process object, for that we use .env library
             // now i can use the DATABASE_URL for the .env file
             useNewUrlParser: true,
             useUnifiedTopology: true,
